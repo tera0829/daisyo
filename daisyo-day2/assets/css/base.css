@@ -8,4 +8,12 @@ html,body {margin:0;padding:0;}
     --radius:14px;--radius-sm: 10px;
     --space:24px;--space-sm: 12px;--maxw:1100px;
 }
+@media(prefers-color-scheme:dark){
+    :root{
+        --bg:#0b1020;--fg:#e5ecff;--muted:#9aa3b2;
+        --card:#11172a;--border:#1f2a44;--shadow:0 10px 28 rgba(0,0,0,.35);
+        --brand:#60a5fa;--brand-weak:#0f172a;
+    }
+}
+
 
