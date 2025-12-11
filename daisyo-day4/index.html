@@ -2,31 +2,61 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>Day3 在庫管理アプリ（文化祭ドリンク）</title>
-    <!--CSSを読み込む-->
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Day4 文化祭　在庫管理アプリ（保存＋メール送信）</title>
     <link rel="stylesheet" href="assets/css/inventory.css">
 </head>
 <body>
-    <h1>文化祭ドリンク在庫管理（Day3）</h1>
-    <p>+/-ボタンを押して在庫数を変更してみましょう。</p>
+    <main class="container">
+    <h1>文化祭ドリンク在庫管理（Day4）</h1>
+    <p class="muted">
+     JPSONで管理している在庫データをブラウザにほぞんし、StaticFormsを使って在庫一覧をメールで送信するアプリです。    
+    </p>
 
-    <!--在庫一覧を表示する表-->
-    <table>
-        <thead>
-            <tr>
-                <th>商品ＩＤ</th>
-                <th>商品名</th>
-                <th>価格（税込）</th>
-                <th>在庫数</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody id="item-list">
-            <!--JavaScriptから自動で行（tr）が追加されます-->
-        </tbody>
-    </table>
+    <section class="panel">
+        <h2 class="panel-title">在庫一覧</h2>
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>商品ＩＤ</th>
+                    <th>商品名</th>
+                    <th>価格（税込）</th>
+                    <th>在庫数</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="item-list">
+            </tbody>
+        </table>
+        <p class="hint">
+            在庫数が<code>minstock</code>より少ない商品は行の廃棄委が変わります。
+        </p>
+    </section>
 
-    <!--JavaScriptファイルを一番最後に読み込む-->
+    <section calss="actions">
+        <button id="save-dtn" class="btn">在庫を保存する</button>]
+        <button id="mail-btn" name="btn btn-ghost">在庫一覧をメールで送る</button>
+    </section>
+    <form 
+     id="inventory-mail-form"
+     action="https://api.staticfoms.dev/submit"
+     meghod="POST"
+     style="display:none;"
+     >
+
+     <input type="hidden" name="apiKey" value="sf_bffmkgm7f40344k4g3c659ba"/>
+
+     <input type="hidden" name="subject" value="文化祭　在庫一覧レポート"/>
+
+     <input
+      type="hidden"
+      name="redirectTo"
+      value="https://github.io/daisho/dausho-day4/"
+
+     <textarea id="inventory-message" name="message"></textarea>
+    </form>
+    </main>
+   
     <script src="assets/js/inventory.js"></script>
 </body>
 </html>
