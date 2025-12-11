@@ -1,23 +1,26 @@
 //----------------------------
 //1.在庫データ（JSON的な構造）
 //----------------------------
-const items = [
+let items = [
     {id:"D001",name:"オレンジジュース",price:150,stock:20,minStock:5},
-    {id:"D002",name:"コーラ",         price:150,stock:12,minStock:5},
-    {id:"D003",name:"お茶",           price:120,stock:30,minStock:5}
+    {id:"D002",name:"コーラ",price:150,stock:12,minStock:5},
+    {id:"D003",name:"お茶",price:120,stock:30,minStock:5}
 ];
-
+const STORAGE_KEY="inventory-items";
 //HTMLで<tbody id="item-list">と書いた部分をJavaScriptから取得する
-const tbody=document.getElmentById("item-list");
+
 
 //----------------------------
 //2.表示用の関数　render()
 //----------------------------
-function render(){
-    //一度、中身を空にしてから作り直す
+function loadFromStorage(){
+    const json=localStorage.getitem(STORAGE_KEY)
+    if
+
+ 
     tbody.innerHTML = "";
 
-    //itemsの中身を1件ずつ取り出してtr（行）を作る
+  
     items.forEach(item=>{
         const tr=document.createElement("tr");
     
